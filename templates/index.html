@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block more_css %}{% endblock %}
+
+
+{% block body %}
+ {# START main-pane DIV #}
+ <div class="row main-pane" id="first-container">
+  {# START left-jobs-col DIV #}
+  <div class="col-sm-3 col-md-3">
+   <ul class="nav nav-pills nav-stacked">
+   {% include 'snippets/left-nav-column-simple.html' %}
+   {% block more_left_nav %}{% endblock %}   
+   </ul>
+  {# END left-jobs-col DIV #}
+  </div>
+  <div class="col-sm-8 col-md-7">
+   {% block app_main_body %}
+   {% endblock %}
+  </div>
+{# END main-pane DIV #}
+ </div>
+{% endblock %}
+
+ {% block more_js %}
+ <script src="{{ STATIC_URL }}js/bootstrap-affix.js"></script>
+ 
+ {% endblock %}

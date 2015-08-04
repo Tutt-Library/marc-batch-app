@@ -1,0 +1,4 @@
+<li class="nav-header">ILS Jobs</li>
+{% for job in jobs %}
+  <li><a href="{{ url_for('job', code=job.name) }}">{{ job.name }}: {{ job.class }}</a></li>
+{% endfor %}

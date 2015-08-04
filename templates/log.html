@@ -1,0 +1,40 @@
+{% extends 'marc-batch-app.html' %}
+{% load i18n %}
+
+{% block more-css %}{% endblock %}
+
+
+{% block app-main-body %}
+  <div class="row-fluid">
+     <div class="span8">
+     <h1>{{ current_job.name }}</h1>
+	 <h3>Download MARC &amp; Log Results</h3>
+     </div>
+   </div>
+   {% comment %}START forms row DIV{% endcomment %}
+    <form action="/apps/marc_batch/update" method="POST">
+      {% csrf_token %}
+   <div class="row">
+    {% comment %}START job log details DIV{% endcomment %}
+	 <div class="col-sm-4 col-md-4">
+      <a class="btn btn-success" href="/apps/marc_batch/download">Download modified MARC file</a>
+      <input type="hidden" value="{{ current_job.pk }}" name="job_id" />
+	  <input type="hidden" value="{{ current_log.pk }}" name="log_id" />
+      {{ log_form }}
+      <br/>
+      {% comment %}END job log details DIV{% endcomment %}
+     </div>
+     {% comment %}START job log notes DIV{% endcomment %}
+     <div class="col-sm-4 col-md-4">
+      {{ log_notes_form }}
+     {% comment %}END job log notes DIV{% endcomment %}
+     </div>
+   {% comment %}END forms row DIV{% endcomment %}
+   </div>
+   <div class="row-fluid">
+	 <div class="span3">
+      <input class="btn btn-lg btn-primary" type="submit" value="Update" />
+     </div>
+   </div>
+   </form>
+{% endblock %}
