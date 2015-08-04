@@ -3,6 +3,7 @@
 """
 __author__ = "Jeremy Nelson"
 from asp_base import AlexanderStreetPressMusicJob
+NAME = "Alexander Street Press - American Song"
 
 class AlexanderStreetPressAmericanSong(AlexanderStreetPressMusicJob):
     
@@ -11,7 +12,6 @@ class AlexanderStreetPressAmericanSong(AlexanderStreetPressMusicJob):
         """
         Creates instance of `AlexanderStreetPressAmericanSong`
         """
-        self.name = "Alexander Street Press - American Song"
         kwargs['asp_code'] = 'amso'
         kwargs['proxy'] = '0-amso.alexanderstreet.com.tiger.coloradocollege.edu'
         AlexanderStreetPressMusicJob.__init__(self,

@@ -4,11 +4,12 @@ import importlib
 import os
 import sys
 from app import app
+from collections import OrderedDict
 from flask import  abort, escape, jsonify, redirect, render_template 
 from flask import request, session, url_for
 
 
-JOBS = dict()
+JOBS = OrderedDict()
 ROOT = os.path.abspath(os.path.dirname(__file__))
 LIBS = os.path.join(ROOT, "lib")
 sys.path.append(LIBS)

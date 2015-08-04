@@ -5,6 +5,8 @@
 __author__ = "Jeremy Nelson"
 from asp_base import AlexanderStreetPressBase
 from pymarc import Field
+NAME = "Alexander Street Press - Black Drama"
+
 
 class AlexanderStreetPressBlackDrama(AlexanderStreetPressBase):
     """
@@ -20,7 +22,6 @@ class AlexanderStreetPressBlackDrama(AlexanderStreetPressBase):
         Parameters:
         - `marc_file`: MARC file, required
         """
-        self.name = "Alexander Street Press - Black Drama"
         kwargs['asp_code'] = 'asp_bd2'
         AlexanderStreetPressBase.__init__(self, marc_file, **kwargs)
 

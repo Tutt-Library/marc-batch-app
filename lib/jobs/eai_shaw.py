@@ -2,7 +2,8 @@
  :mod:`eai_evans` Early American Imprints Shaw Job
 """
 __author__ = "Jeremy Nelson"
-from .eai import EarlyAmericanImprintsJob
+from eai import EarlyAmericanImprintsJob
+NAME = "Early American Imprints First Series (Shaw)"
 
 class EarlyAmericanImprintsShawJob(EarlyAmericanImprintsJob):
 
