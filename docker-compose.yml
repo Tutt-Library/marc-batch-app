@@ -1,0 +1,9 @@
+web:
+  build: .
+  ports:
+   - "20156:20156"
+  links:
+   - semantic_server
+
+semantic_server:
+  image: jermnelson/semantic-server-core

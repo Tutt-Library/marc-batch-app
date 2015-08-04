@@ -1,0 +1,4 @@
+flask
+pymarc
+rdflib
+requests
