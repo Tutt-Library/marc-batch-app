@@ -122,7 +122,7 @@ class SpringerEBookJob(MARCModifier):
         field008 = marc_record.get_fields('008')[0]
         marc_record.remove_field(field008)
         # Form of item
-        if field008.data[24-1] != 's':
+        if field008.data[24-1] == 's':
             field008.data = field008.data[0:23] + 'o' + field008.data[24:]
         # Nature of content, set to None
         if field008.data[27-1]:

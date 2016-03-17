@@ -18,10 +18,10 @@ class LoebClassicalLibrary(MARCModifier):
         self.__remove_field__(marc_record=marc_record,
                               tag='710')
         field730 = Field(tag='710',
-                         indicators=['2',' '].
+                         indicators=['2',' '],
                          subfields=['a','Loeb Classical Library'])
-    marc_record.add_field(field730)
-    return marc_record
+        marc_record.add_field(field730)
+        return marc_record
     
     
     def validate730(self,marc_record):
@@ -31,7 +31,7 @@ class LoebClassicalLibrary(MARCModifier):
         self.__remove_field__(marc_record=marc_record,
                               tag='730')
         field730 = Field(tag='730',
-                         indicators=['0',' '].
+                         indicators=['0',' '],
                          subfields=['a','Loeb Classical Library'])
-    marc_record.add_field(field730)
-    return marc_record
+        marc_record.add_field(field730)
+        return marc_record
