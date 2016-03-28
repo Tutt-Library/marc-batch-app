@@ -12,6 +12,8 @@ from pymarc import Field
 import re
 from rda_enhancement.pcc_conversion import PCCMARCtoRDAConversion
 
+NAME = "SpringLink eBooks"
+
 PROXY_LOCATION = 'http://0-www.springerlink.com.tiger.coloradocollege.edu/openurl.asp?genre=book&id=doi:'
 
 

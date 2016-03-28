@@ -67,7 +67,7 @@ def clean_unicode(record):
     bad_chars = UNICODE_CHAR_REPLACEMENT.keys()
     for field in record.fields:
         for char in bad_chars:
-            if unicode(field).find(char) > -1:
+            if str(field).find(char) > -1:
                 for i, subfield in enumerate(field.subfields):
                     if len(subfield) > 1: # Subfield codes are usually 1 char
                         field.subfields[i] = subfield.replace(
@@ -185,7 +185,7 @@ class MARCModifier(object):
 
     def output(self):
         "Outputs supporting unicode"
-        output_string = cStringIO.StringIO()
+        output_string = io.StringIO()
         for record in self.records:
             try:
                 record_str = record.as_marc()
@@ -193,7 +193,7 @@ class MARCModifier(object):
                 record.force_utf8 = True
                 record_str = record.as_marc()
             try:
-                output_string.write(record_str)
+                output_string.write(record_str.decode())
             except UnicodeEncodeError:
                 output_string.write(record_str.encode('utf8',
                                                       'ignore'))
@@ -401,7 +401,7 @@ class MARCModifier(object):
         `marc_record`: Required, MARC record
         `tag`: Required, tag of field
         """
-        if not kwargs.has_key('marc_record') or not kwargs.has_key('tag'):
+        if not 'marc_record' in kwargs or not 'tag' in kwargs:
             raise ValueError('__remove_field__ requires marc_record and tag')
         marc_record,tag = kwargs.get('marc_record'),kwargs.get('tag')
         allfields = marc_record.get_fields(tag)

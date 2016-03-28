@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% block app_main_body %}
+<form class="form form-horizontal" 
+      method="POST" 
+      action="{{ url_for('job', code=job.name) }}"
+      enctype="multipart/form-data">
+ <h3>{{ job.class.NAME }}</h3>
+     <section class="form-group">
+         <label class="control-label col-sm-3">Upload Single MARC File</label>
+        <div class="col-sm-5">
+            <input type="file" class="form-control" name="raw_marc_file"></input>
+        </div>
+     </section>
+     <section class="form-group">
+        <label class="control-label col-sm-3">Record Type</label>
+        <div class="col-sm-4">
+            <select class="form-control" name="record_type">
+                <option value="1">Bibliographic</option>
+                <option value="2">Person Authority</option>
+                <option value="3">Subject Authority</option>
+            </select>
+        </div>
+     </section>
+     <section class="form-group">
+        <label class="control-label col-sm-3">Note</label>
+        <div class="col-sm-7">
+            <textarea class="form-control" name="notes"></textarea>
+        </div>
+     </section> 
+     <section class="form-group">
+        <input type="submit" class="btn btn-warning" value="Upload"></input>
+     </section>
+</form>
+{% endblock %}
+

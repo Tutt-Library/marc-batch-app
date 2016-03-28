@@ -3,6 +3,7 @@
 """
 __author__ = "Jeremy Nelson"
 from .op_base import OxfordHandbooksJob
+NAME = "Oxford Handbooks Online Psychology" 
 
 class OxfordHandbooksOnlinePsychology(OxfordHandbooksJob):
     """

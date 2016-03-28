@@ -3,6 +3,8 @@
 """
 __author__ = "Cindy Tappan, Jeremy Nelson"
 
+NAME = "Films on Demand"
+
 import datetime
 import io
 import logging

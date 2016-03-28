@@ -3,6 +3,7 @@
 """
 __author__ = "Jeremy Nelson"
 from .op_base import OxfordHandbooksJob
+NAME = "Oxford Reference Online"
 
 class OxfordReferenceOnlineJob(OxfordHandbooksJob):
     """

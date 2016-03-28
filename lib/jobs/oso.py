@@ -20,6 +20,7 @@ try:
 except ImportError:
     import urlparse
 
+NAME = "Oxford Scholarship Online"
 
 class OxfordScholarshipOnline(MARCModifier):
     """Class takes any number of different Oxford Scholarship Online and

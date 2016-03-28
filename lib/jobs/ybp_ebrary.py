@@ -9,6 +9,8 @@ VOL_RE = re.compile(r"(.*)(vol)[.|\s]*(.*)")
 NO_RE = re.compile(r"(.*)([n|N]o)[.|\s]*(.*)")
 BD_RE = re.compile(r"(.*)(Ba*n*d)[.|\s]*(.*)")
 
+NAME = "Yankee Book Press Ebrary DDA"
+
 class ybp_ebrary(MARCModifier):
     """
     :class:`ybp_ebrary` class takes a YBP EBL DDA MARC record
