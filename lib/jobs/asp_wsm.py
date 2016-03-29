@@ -5,7 +5,7 @@ __author__ = "Jeremy Nelson"
 from asp_base import AlexanderStreetPressBase
 NAME = "Alexander Street Press - Women and Social Movement"
 
-class AlexanderStreetPressWomenSocialMovements(AlexanderStreetPressBase):
+class AlexanderStreetPressWomenSocialMovementsJob(AlexanderStreetPressBase):
     """
     The `AlexanderStreetPressWomenSocialMovements` reads MARC records from
     Alexander Street Press Women and Social Movements database.
