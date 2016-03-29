@@ -15,9 +15,9 @@
         <label class="control-label col-sm-3">Record Type</label>
         <div class="col-sm-4">
             <select class="form-control" name="record_type">
-                <option value="1">Bibliographic</option>
-                <option value="2">Person Authority</option>
-                <option value="3">Subject Authority</option>
+            {% for name, id in rec_types.items() %}
+            <option value="{{ id }}">{{ name }}</option>
+            {% endfor %}
             </select>
         </div>
      </section>

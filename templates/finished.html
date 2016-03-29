@@ -2,4 +2,64 @@
 
 {% block app_main_body %}
 <h2>Finished <small>{{ info['job']['module'].NAME }}</small></h2>
+<div class="row">
+    <section class="col-md-6">
+        <div class="btn-group">
+            <a href="{{ url_for('download', status='mod', log_id=info['id']) }}" class="btn btn-success">
+                <i class="glyphicon glyphicon-download"></i><br>
+                Modified MARC
+            </a>
+             <a href="{{ url_for('download', status='org', log_id=info['id']) }}" class="btn btn-primary">
+                <i class="glyphicon glyphicon-download"></i><br>
+               Original MARC
+            </a>
+        </div>
+    </section>
+    <section class="col-md-6 ">
+    <form class="form well well-sm" >
+        <input type="hidden" value="{{ info['id'] }}" id="log_id"></input>
+       <h3>Load Results</h3>
+        {% for name, id in stat_types.items() %}
+        <div class="form-group"> 
+            <label class="control-label">{{ name }}</label>
+            <input type="text" id="stat-type-{{ id }}" class="form-control"></input>
+        </div>
+        {% endfor %}
+        <section class="form-group">
+            <label class="control-label">Note</label>
+             <textarea class="form-control" id="notes"></textarea>
+        </section>
+        <a href="#" class="btn btn-danger" onclick="updateLog()">Update</a>
+    </form>
+    </section>
+</div>
+{% endblock %}
+
+{% block more_js %}
+<script>
+function updateLog() {
+  var data = {
+    "log_id": $("#log_id").val(),
+    "note": $("#notes").val(),
+    "stats": {}
+  }
+  {% for stat_id in stat_types.values() %}
+   if ($("#stat-type-{{ stat_id }}").val().length > 0) {
+      data["stats"][{{ stat_id }}] = $("#stat-type-{{ stat_id }}").val();
+      $("#stat-type-{{ stat_id }}").addClass("disabled");
+   }
+  {% endfor %}
+  $.post({
+    data: data,
+    method: "POST",
+    url: "{{ url_for("update") }}",
+    success: function(data) {
+       console.log(" Success");
+    } 
+  });
+
+}
+
+
+</script>
 {% endblock %}
