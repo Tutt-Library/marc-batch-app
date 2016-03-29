@@ -18,4 +18,4 @@ if __name__ == '__main__':
     args = parser.parse_args()
     if args.action.startswith('run'):
         print("Running application in debug mode")
-        app.run(host='localhost', port=20157, debug=True) 
+        app.run(host='0.0.0.0', port=20157, debug=True) 
