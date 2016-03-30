@@ -33,15 +33,15 @@ class SpringerEBookJob(MARCModifier):
         '''
         MARCModifier.__init__(self, marc_file, True)
         self.spr_url = 'http://www.springerlink.com/openurl.asp?genre=book&id=doi:'
-        if kwargs.has_key('proxy'):
+        if 'proxy' in kwargs:
             self.spr_proxy = kwargs.get('proxy')
         else:
             self.spr_proxy =  PROXY_LOCATION
-        if kwargs.has_key('public_note'):
+        if 'public_note' in kwargs:
             self.public_note = kwargs.get('public_note')
         else:
             self.public_note = 'View online'
-        if kwargs.has_key('note_prefix'):
+        if 'note_prefix' in kwargs:
             self.note_prefix = kwargs.get('note_prefix')
         else:
             self.note_prefix='Available via Internet'

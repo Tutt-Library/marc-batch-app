@@ -1,4 +1,4 @@
 <li class="nav-header">ILS Jobs</li>
 {% for job in jobs %}
-  <li {% if request.path.startswith("/"+job.name) %}class="active"{% endif %}><a href="{{ url_for('job', code=job.name) }}">{{ job.name }}: {{ job.module.NAME }}</a></li>
+  <li {% if request.path.startswith("/"+job.name) %}class="active"{% endif %}><a href="{{ url_for('job', code=job.name) }}">{{ job.module.NAME }}</a></li>
 {% endfor %}
