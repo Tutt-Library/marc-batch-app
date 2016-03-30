@@ -1,14 +1,12 @@
 """
-#-------------------------------------------------------------------------------
-# Name:       oso.py
-# Purpose:    Oxford Scholarship Online
-#
-# Author:      Jeremy Nelson
-#
-# Created:     2014/10/23
-# Copyright:   (c) Jeremy Nelson 2014
-# Licence:     GPLv2
-#-------------------------------------------------------------------------------
+Name:       oso.py
+Purpose:    Oxford Scholarship Online
+
+Author:      Jeremy Nelson
+
+Created:     2014/10/23
+Copyright:   (c) Jeremy Nelson 2014
+ Licence:     GPLv2
 """
 __author__ = 'Jeremy Nelson'
 
@@ -21,6 +19,28 @@ except ImportError:
     import urlparse
 
 NAME = "Oxford Scholarship Online"
+
+COLLECTIONS = [
+    {"name": "Oxford scholarship online biology"},
+    {"name": "Oxford scholarship online business and management"},
+    {"name": "Oxford scholarship online classical studies"},
+    {"name": "Oxford scholarship online economics and finance"},
+    {"name": "Oxford scholarship online history"},
+    {"name": "Oxford scholarship online linguistics"},
+    {"name": "Oxford scholarship online literature"},
+    {"name": "Oxford scholarship online mathematics"},
+    {"name": "Oxford scholarship online music"},
+    {"name": "Oxford scholarship online neuroscience"},
+    {"name": "Oxford scholarship online palliative care"},
+    {"name": "Oxford scholarship online philosophy"},
+    {"name": "Oxford scholarship online physics"},
+    {"name": "Oxford scholarship online political science"},
+    {"name": "Oxford scholarship online psychology"},
+    {"name": "Oxford scholarship online public health and epidemiology"},
+    {"name": "Oxford scholarship online religion"},
+    {"name": "Oxford scholarship online social work"},
+    {"name": "Oxford scholarship online sociology"}
+]
 
 class OxfordScholarshipOnline(MARCModifier):
     """Class takes any number of different Oxford Scholarship Online and

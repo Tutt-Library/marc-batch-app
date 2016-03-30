@@ -14,6 +14,30 @@ import logging
 from marc_helpers import MARCModifier
 from pymarc import Field
 
+NAME = "Alexander Street Press"
+
+COLLECTIONS = [
+    {"name": "Alexander Street Press - American Song",
+     "asp_code": 'amso',
+     "proxy": '0-amso.alexanderstreet.com.tiger.coloradocollege.edu'},
+    {"name":  "Alexander Street Press - Black Drama",
+     "asp_code": 'asp_bd2'},
+    {"name": "Alexander Street Press - Classical Music Library",
+     'asp_code': 'clmu',
+     'proxy': '0-clmu.alexanderstreet.com.tiger.coloradocollege.edu'},
+    {"name": "Alexander Street Press - Contemporary world music",
+     'asp_code': 'womu',
+     'proxy': '0-womu.alexanderstreet.com.tiger.coloradocollege.edu'},
+    {"name":  "Alexander Street Press - Jazz Music Library",
+     "asp_code": 'jazz',
+     'proxy': '0-jazz.alexanderstreet.com.tiger.coloradocollege.edu'},
+    {"name":  "Alexander Street Press - Smithsonian global sounds for libraries",
+     'asp_code': 'glmu',
+      'proxy': '0-glmu.alexanderstreet.com.tiger.coloradocollege.edu'},
+    {"name": "Alexander Street Press - Women and Social Movement",
+     "proxy": "0-asp6new.alexanderstreet.com.tiger.coloradocollege.edu",
+     "uniform_title": "Women and social movements in the United States 1600-2000: Scholar's edition."} # Should change 730
+]
 
 class AlexanderStreetPressBase(MARCModifier):
     """

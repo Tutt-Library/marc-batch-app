@@ -2,7 +2,7 @@
  :mod:`op_ro`  Oxford Reference Online Library Job
 """
 __author__ = "Jeremy Nelson"
-from .op_base import OxfordHandbooksJob
+from .oho import OxfordHandbooksJob
 NAME = "Oxford Reference Online"
 
 class OxfordReferenceOnlineJob(OxfordHandbooksJob):

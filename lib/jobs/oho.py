@@ -9,7 +9,36 @@ import urllib.parse
 from marc_helpers import MARCModifier
 from pymarc import Field
 
+NAME = "Oxford Handbooks Online"
+
 HANDBOOK_PROXY_FILTER = 'http://0-www.oxfordhandbooks.com.tiger.coloradocollege.edu'
+
+COLLECTIONS = [
+    {"name": "Oxford Handbooks Online Archaeology",
+     "handbook_label": "in archaeology"},
+    {"name": "Oxford Handbooks Online Business and Management",
+     "handbook_label": "in business and management"},
+    {"name": "Oxford Handbooks Online Philosophy",
+     "handbook_label": "in classics and ancient history"},
+    {"name":  "Oxford Handbooks Online Economics and Finance",
+     "handbook_label": "in economics and finance"},
+    {"name": "Oxford Handbooks Online History",
+     "handbook_label": "in history"},
+    {"name": "Oxford Handbooks Online Literature",
+     "handbook_label": "of literature"},
+    {"name": "Oxford Handbooks Online Music",
+     "handbook_label": "in music"},
+    {"name": "Oxford Handbooks Online Philosophy",
+     "handbook_label": "in philosophy"},
+    {"name": "Oxford Handbooks Online Political Science",
+     "handbook_label": 'of political science'},
+    {"name":  "Oxford Handbooks Online Psychology",
+     "handbook_label": "of psychology"},
+    {"name":  "Oxford Handbooks Online Psychology",
+      "handbook_label":  "of psychology"},
+    {"name": "Oxford Handbooks Online Religion",
+     "handbook_label": 'in religion'}
+]
 
 class OxfordHandbooksJob(MARCModifier):
     """

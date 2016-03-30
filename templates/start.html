@@ -26,7 +26,20 @@
         <div class="col-sm-7">
             <textarea class="form-control" name="notes"></textarea>
         </div>
-     </section> 
+     </section>
+     {% if job.module.COLLECTIONS %}
+     <section class="form-group">
+        <label class="control-label col-sm-3">Collection</label>
+        <div class="col-sm-7">
+            <select class="form-control" name="collection">
+                <option>Select</option>
+            {% for row in job.module.COLLECTIONS %}
+                <option value="{{ row.name }}">{{ row.name }}</option>
+            {% endfor %}
+            </select>
+        </div>
+     </section>
+     {% endif %}
      <section class="form-group">
         <input type="submit" class="btn btn-warning" value="Upload"></input>
      </section>
