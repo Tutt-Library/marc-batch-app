@@ -60,7 +60,13 @@ class OxfordHandbooksJob(MARCModifier):
                           field.
         """
         marc_file = kwargs.get('marc_file')
-        self.handbook_label = kwargs.get('handbook_label', None)
+        collection = kwargs.get('collection')
+        self.handbook_label = None
+        for row in collection:
+            if row.get('name') == collection:
+                self.handbook_label = row.get('handbook_label')        
+        if not self.handbook_label:
+            raise ValueError("Collection required to set handbook label") 
         to_unicode = kwargs.get('to_unicode', False)
         MARCModifier.__init__(self, marc_file, to_unicode)
         if kwargs.has_key('proxy_filter'):

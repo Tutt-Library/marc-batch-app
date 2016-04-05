@@ -54,10 +54,14 @@ class AlexanderStreetPressBase(MARCModifier):
         :param asp_code: Alexander Street Press Code, default is asp
         """
         MARCModifier.__init__(self, marc_file, True)
-        if not kwargs.has_key('asp_code'):
-            self.asp_code = 'asp'
-        else:
-            self.asp_code = kwargs.get('asp_code')
+        collection = kwargs.get("collection")
+        self.asp_code, self.proxy, self.uniform_title = None, None, None
+        for row in COLLECTIONS:
+            if row.get('name') == collection:
+                self.asp_code = row.get('asp_code')
+                self.proxy = row.get('proxy')
+                if hasattr(row, 'uniform_title'):
+                    self.uniform_title = row.get("uniform_title")
         self.resolved_baseurl = None
 
     def getResolvedURL(self,

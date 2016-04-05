@@ -42,7 +42,7 @@ COLLECTIONS = [
     {"name": "Oxford scholarship online sociology"}
 ]
 
-class OxfordScholarshipOnline(MARCModifier):
+class OxfordScholarshipOnlineJob(MARCModifier):
     """Class takes any number of different Oxford Scholarship Online and
     generates modified MARC records
     """

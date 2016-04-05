@@ -17,8 +17,7 @@ sys.path.append(LIBS)
 walker = next(os.walk(os.path.join(LIBS, "jobs")))
 for filename in walker[2]:
     if filename.endswith("py") and not filename.startswith("_")\
-        and not filename.startswith("ils")\
-        and not filename.endswith("_base.py"):
+        and not filename.startswith("ils"):
         name = filename.split(".")[0]
         module = importlib.import_module("jobs.{}".format(name), None)
         for row in dir(module):
@@ -178,13 +177,16 @@ def download(status, log_id):
 
 @app.route("/<code>", methods=["POST", "GET"])
 def job(code):
+
     if code in JOBS:
         if request.method.startswith("POST"):
             # Converts and returns transformed
             job_class = JOBS[code]["class"]
+            print("Code is {} class {}".format(code, job_class))
             raw_marc = request.files["raw_marc_file"].stream.read() 
             log_id = __log_job__(code, request.form, raw_marc)
-            job_instance = job_class(raw_marc)
+            collection = request.form['collection']
+            job_instance = job_class(raw_marc, collection=collection)
             job_instance.load()
             __update_log__(log_id, job_instance)
             return redirect(url_for('finished', log_id=log_id))
