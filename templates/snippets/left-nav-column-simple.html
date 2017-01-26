@@ -3,4 +3,6 @@
   <li {% if request.path.startswith("/"+job.name) %}class="active"{% endif %}><a href="{{ url_for('job', code=job.name) }}">{{ job.module.NAME }}</a></li>
 {% endfor %}
 <li class="nav-header">Other</li>
-  <li><a class="btn btn-warning" href="/fedora_utilties">Fedora Utilities</a></li>
+  <li>
+     <a class="btn btn-danger" href="/fedora_utilties">Fedora Utilities</a>
+ </li>
