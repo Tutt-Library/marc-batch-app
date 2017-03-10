@@ -189,7 +189,11 @@ def job(code):
             job_class = JOBS[code]["class"]
             raw_marc = request.files["raw_marc_file"].stream.read() 
             log_id = __log_job__(code, request.form, raw_marc)
-            job_instance = job_class(raw_marc)
+            if "collection" in request.form:
+                job_instance = job_class(raw_marc, 
+                                         collection=request.form['collection'])
+            else:
+                job_instance = job_class(raw_marc) 
             job_instance.load()
             __update_log__(log_id, job_instance)
             return redirect(url_for('finished', log_id=log_id))
