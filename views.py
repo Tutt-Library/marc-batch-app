@@ -177,20 +177,24 @@ def download(status, log_id):
 
 @app.route("/<code>", methods=["POST", "GET"])
 def job(code):
+    """Looks for code in JOBS. If GET returns form with Job class, if
+    post, loads MARC21 into job and redirects to finished
 
+    Args:
+        code: Job code
+    """
     if code in JOBS:
         if request.method.startswith("POST"):
-            # Converts and returns transformed
+            # Converts and returns transformed MARC
             job_class = JOBS[code]["class"]
-            print("Code is {} class {}".format(code, job_class))
             raw_marc = request.files["raw_marc_file"].stream.read() 
             log_id = __log_job__(code, request.form, raw_marc)
-            collection = request.form['collection']
-            job_instance = job_class(raw_marc, collection=collection)
+            job_instance = job_class(raw_marc)
             job_instance.load()
             __update_log__(log_id, job_instance)
             return redirect(url_for('finished', log_id=log_id))
         else:
+            print(JOBS[code])
             return render_template(
                 "start.html", 
                 job=JOBS[code],

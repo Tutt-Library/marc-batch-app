@@ -3,3 +3,5 @@ nohup.out
 *pycache*
 *instance
 *sqlite
+tmp*
+*pyc
