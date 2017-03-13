@@ -198,7 +198,6 @@ def job(code):
             __update_log__(log_id, job_instance)
             return redirect(url_for('finished', log_id=log_id))
         else:
-            print(JOBS[code])
             return render_template(
                 "start.html", 
                 job=JOBS[code],
